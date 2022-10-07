@@ -1,0 +1,51 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "webpack-vue",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "webpack",
+        "serve": "webpack-dev-server --open --hot",
+        "build": "webpack --mode=development --progress --hide-modules"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    },
+    "prefix": "E:\\webpack\\webpack-vue"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "E:\\.pnpm-store\\v3",
+    "virtualStoreDir": "E:\\webpack\\webpack-vue\\node_modules\\.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "E:\\webpack\\webpack-vue",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_FETCH_404",
+    "hint": "webpack-dev-derver is not in the npm registry, or you have no permission to fetch it.\n\nAn authorization header was used: Bearer a306[hidden]",
+    "request": {
+      "authHeaderValue": "Bearer a306aa03-caf5-44e9-94bb-8c6621d18859",
+      "url": "https://registry.npmjs.org/webpack-dev-derver"
+    },
+    "response": {
+      "size": 0
+    },
+    "pkgName": "webpack-dev-derver",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "GET https://registry.npmjs.org/webpack-dev-derver: Not Found - 404",
+      "code": "ERR_PNPM_FETCH_404",
+      "stack": "pnpm: GET https://registry.npmjs.org/webpack-dev-derver: Not Found - 404\n    at RetryOperation._fn (C:\\Users\\86186\\AppData\\Roaming\\npm\\node_modules\\pnpm\\dist\\pnpm.cjs:85709:19)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}
