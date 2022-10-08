@@ -8,7 +8,15 @@
 </template>
 <script setup lang="ts">
     import {Ref, ref} from 'vue';
-    const item: Ref<String> = ref('00909')
+    import {interfaceTest} from "./api";
+
+    const item: Ref<String> = ref('00909');
+    console.log(process.env);
+
+    (async () => {
+        let test = await interfaceTest();
+        console.log(test);
+    })()
 </script>
 
 <style scoped lang="scss">

@@ -7,9 +7,16 @@ const path = require('path');
 const VueLoaderPlugin = require('vue-loader/dist/plugin').default
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
+    resolve: {
+      extensions: ['.ts', '.js', '.less']
+    },
+    optimization: {
+        nodeEnv: false
+    },
     // 入口文件
     entry: path.join(__dirname, './src/index.js'),
     // 出口文件
@@ -64,18 +71,25 @@ module.exports = {
                 test: /\.ts$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/,
+                // include: /\.(ts | tsx)$/,
                 options: {
                     appendTsSuffixTo: [/\.vue$/]
                 }
             }
         ]
     },
+    // 更准确清楚错误发生的位置
+    devtool: 'inline-source-map',
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: './index.html'
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: process.env.NODE_ENV
+            }
+        })
     ]
-
 }

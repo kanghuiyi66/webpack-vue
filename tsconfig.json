@@ -22,9 +22,16 @@
       "dom",
       "es2015",
       "es2015.promise"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+
   },
   "exclude": [
     "node_modules"
   ],
+  "include": ["**/*.ts", "**/*.tsx"]
 }
