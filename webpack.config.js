@@ -3,7 +3,6 @@
  * @author 康慧怡
  * @Date 2022/10/06
  */
-const fs = require('fs');
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/dist/plugin').default
 const HtmlWebpackPlugin = require('html-webpack-plugin')
