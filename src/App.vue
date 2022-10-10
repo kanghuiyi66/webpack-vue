@@ -12,6 +12,7 @@
 
     const item: Ref<String> = ref('00909');
     console.log(process.env);
+    // console.log(process);
 
     (async () => {
         let test = await interfaceTest();

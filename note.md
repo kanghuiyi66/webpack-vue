@@ -29,3 +29,7 @@
 #### 自己配置路由
 #### 封装hooks
 
+### 关于配置环境变量
+#### 安装依赖dotenv，在webpack中进行配置，遍历自定义文件（.env,.env.development等），这样npm run serve时可以获取取到值
+#### 如果想取到对应的环境中的值，下载cross-env依赖，在package.json中配置，.env文件中定义NODE_ENV，根据此值进行辨认
+#### vue-cli-service集成了dotenv和webpack-dev-serve，也可以通过--mode xxx 获取到对应的环境变量中的NODE_DEV

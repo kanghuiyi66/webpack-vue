@@ -3,16 +3,26 @@
  * @author 康慧怡
  * @Date 2022/10/06
  */
+const fs = require('fs');
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/dist/plugin').default
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack');
 
+const dotenvFiles = ['.env', '.env.development']
+dotenvFiles.forEach(file => {
+    if(fs.existsSync(file)) {
+        require('dotenv').config({
+            path: file
+        })
+    }
+})
+
 module.exports = {
     mode: 'development',
     resolve: {
-      extensions: ['.ts', '.js', '.less']
+        extensions: ['*', '.ts', '.js', '.vue']
     },
     optimization: {
         nodeEnv: false
@@ -25,7 +35,10 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        contentBase: path.join(__dirname, './dist'),
+        // contentBase: path.join(__dirname, './dist'),
+        static: {
+            directory: path.join(__dirname, './dist')
+        },
         port: 8000
     },
     module: {
@@ -42,7 +55,7 @@ module.exports = {
                 test: /\.png|jpg|gif|svg$/,
                 use: {
                     loader: 'url-loader',
-                //    少于多少转base64
+                    //    少于多少转base64
                     options: {
                         limit: 7 * 1024,
                         outputPath: 'image'
@@ -87,10 +100,7 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: process.env.NODE_ENV
-                // ...env
-            }
+            'process.env': JSON.stringify(process.env)
         })
     ]
 }
